@@ -1,6 +1,7 @@
 package org.example
 
 import org.example.dresseur.Entraineur
+import org.example.monstres.EspeceMonstre
 
 
 /**
@@ -33,10 +34,28 @@ fun changeCouleur(message: String, couleur:String=""): String {
 var joueur = Entraineur(1, "Sacha", 100)
 var rival = Entraineur(2,"Regis",200)
 
+var Flamkip = EspeceMonstre(4,"flamkip","Animal",
+    12,8,13,16,
+    7,50,105.5,9.5,
+    9.5,9.5,6.5,22.0,
+    "Petit animal entouré de flammes, déteste le froid.",
+    "Sa flamme change d'intensité selon son énergie",
+    "impulsif,joueur,loyal")
 
-fun main(){
-    joueur.afficheDetail()
-    rival.afficheDetail()
-    joueur.argents+=50
-    joueur.afficheDetail()
+var Springlea = EspeceMonstre (1,"Springleaf","Graine",9,
+    11, 10,12,13,60,
+    6.5,9.0,8.0,7.0,10.0,
+    34.0,"Petir monstre espiègle rond comme une graine, adore le soleil ",
+    "Sa feuille sur ca tete indique son humeur","Curieux, amical, timide"
+)
+
+var especeAquamy = EspeceMonstre(1,nom="Aquamy",type="Meteo",10,11,
+    9,14,14,55,9.0,10.0,
+    7.5,12.0,12.0,27.0,
+    "Créature vaporeuse semblable à un nuage, produit des gouttes pures.",
+    "Fait baisser la température en s’endormant.",
+    "Calme, rêveur, mystérieux")
+
+
+fun main(){println(Flamkip.afficheArt())
 }
