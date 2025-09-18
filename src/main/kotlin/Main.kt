@@ -59,3 +59,6 @@ var especeAquamy = EspeceMonstre(1,nom="Aquamy",type="Meteo",10,11,
 
 fun main(){println(Flamkip.afficheArt())
 }
+/**
+ * f
+ */

@@ -63,7 +63,7 @@ class EspeceMonstre (
 )
 
 /**
- * Affiche la représentation artistique ASCII du monstre.
+ * Affiche la représentation artistique ASCII du monstree.
  *
  * @param deFace Détermine si l'art affiché est de face (true) ou de dos (false).
  *               La valeur par défaut est true.

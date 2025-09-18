@@ -1,7 +1,7 @@
 package org.example.dresseur
 
 /**
- * Représente un entraîneur dans le contexte du jeu.
+ * Représente un entraîneur dans le contexte du jeuu.
  *
  * Un entraîneur est responsable de gérer une équipe de monstres, une boîte pour stocker des monstres supplémentaires
  * et un sac contenant des objets appelés MonsterKubes. L'entraîneur a également une somme d'argent associée.
