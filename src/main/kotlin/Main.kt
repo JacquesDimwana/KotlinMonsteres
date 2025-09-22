@@ -59,26 +59,35 @@ var especeAquamy = EspeceMonstre(1,nom="Aquamy",type="Meteo",10,11,
 
 val zoneTropical = Zone(10,"Tropical",19,mutableListOf(especeAquamy, especeSpringLeaf, especeFlamkip))
 
-val monstre1 = individuMonstre(1,"springleaf",especeSpringLeaf,joueur,0.0)
-val monstre2 = individuMonstre(2, "flamkip",  especeFlamkip,joueur,0.0)
-val monstre3 = individuMonstre(3, "aquamy", especeAquamy,joueur,0.0)
+val monstre1 = IndividuMonstre(1,"springleaf",especeSpringLeaf,joueur,0.0)
+val monstre2 = IndividuMonstre(2, "flamkip",  especeFlamkip,joueur,0.0)
+val monstre3 = IndividuMonstre(3, "aquamy", especeAquamy,joueur,0.0)
 
 
 fun main(){
 //    route1.zoneSuivante = route2
 //    route2.zonePrecedente = route1
-    println("Monstre 1 : ${monstre1.nom} : ${monstre1.espece.nom} : ${monstre1.experience} :${monstre1.entraineur?.nom}")
-    println("Monstre 2 : ${monstre2.nom} : ${monstre2.espece.nom}: ${monstre2.experience} : ${monstre2.entraineur?.nom}" )
-    println("Monstre 3 : ${monstre3.nom} : ${monstre3.espece.nom}: ${monstre3.experience} : ${monstre3.entraineur?.nom}")
-    monstre1.attaquer(monstre2)
-    monstre2.attaquer(monstre1)
-    monstre1.attaquer(monstre3)
-    monstre3.attaquer(monstre1)
-    monstre1.renommer()
-    monstre2.renommer()
-    monstre3.renommer()
+//    println("Monstre 1 : ${monstre1.nom} : ${monstre1.espece.nom} : ${monstre1.experience} :${monstre1.entraineur?.nom}")
+//    println("Monstre 2 : ${monstre2.nom} : ${monstre2.espece.nom}: ${monstre2.experience} : ${monstre2.entraineur?.nom}" )
+//    println("Monstre 3 : ${monstre3.nom} : ${monstre3.espece.nom}: ${monstre3.experience} : ${monstre3.entraineur?.nom}")
+//    monstre1.attaquer(monstre2)
+//    monstre2.attaquer(monstre1)
+//    monstre1.attaquer(monstre3)
+//    monstre3.attaquer(monstre1)
+//    monstre1.renommer()
+//    monstre2.renommer()
+//    monstre3.renommer()
+// {println("${especeAquamy.afficheArt()}, ${especeSpringLeaf.afficheArt()}")
+    println("=== Test affichage des détails ===")
+
+    println("=== Monstre 1 ===")
+    monstre1.afficheDetail()
+
+    println("\n=== Monstre 2 ===")
+    monstre2.afficheDetail()
+
+    println("\n=== Monstre 3 ===")
+    monstre3.afficheDetail()
 
 
-
-//{println("${especeAquamy.afficheArt()}, ${Springlea.afficheArt()}")
 }

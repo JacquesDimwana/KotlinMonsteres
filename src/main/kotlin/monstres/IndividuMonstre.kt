@@ -5,7 +5,7 @@ import org.example.monstres.EspeceMonstre
 import kotlin.random.Random
 import kotlin.math.round
 
-class individuMonstre(
+class IndividuMonstre(
     val id: Int,
     var nom: String,
     val espece: EspeceMonstre,
@@ -20,6 +20,7 @@ class individuMonstre(
                 levelUp()
             }
         }
+
     fun palierExp(niveau: Int): Double {
         return 100 * Math.pow((niveau - 1).toDouble(), 2.0)
     }
@@ -87,13 +88,15 @@ class individuMonstre(
 
         println("Level up ! Nouveau niveau : $niveau")
     }
-    fun attaquer(cible: individuMonstre) {
+
+    fun attaquer(cible: IndividuMonstre) {
         val degatsBruts = attaque - (cible.defense / 2)
         val degats = if (degatsBruts < 1) 1 else degatsBruts
         cible.pv -= degats
         println("${nom} attaque ${cible.nom} et inflige $degats dégâts !")
         println("${cible.nom} a maintenant ${cible.pv}/${cible.pvMax} PV.")
     }
+
     fun renommer() {
         print("Entrez un nouveau nom pour ${nom} (laissez vide pour garder le même) : ")
         val nouveauNom = readLine()?.trim() ?: ""
@@ -105,24 +108,69 @@ class individuMonstre(
         }
     }
 
+    fun afficheDetail() {
+        // 1. Récupérer l’art ASCII et normaliser les retours à la ligne
+        val art = espece.afficheArt().replace("\r\n", "\n").replace("\r", "\n")
+        val artLines = art.lines()
+
+        // 2. Construire les détails (statistiques complètes)
+        val details = listOf(
+            "Nom : $nom",
+            "Espèce : ${espece.nom}",
+            "Type : ${espece.type}",
+            "Niveau : $niveau",
+            "PV : $pv/$pvMax",
+            "Attaque : $attaque",
+            "Défense : $defense",
+            "Vitesse : $vitesse",
+            "Attaque Spé : $attaqueSpe",
+            "Défense Spé : $defenseSpe",
+            "Expérience : ${"%.2f".format(experience)}",
+            "Entraîneur : ${entraineur?.nom ?: "Aucun"}"
+        )
+
+        // 3. Largeur max de l’art (ignorer les codes couleur ANSI pour le calcul)
+        val ansiRegex = "\u001B\\[[;\\d]*m".toRegex()
+        val maxArtWidth = artLines.maxOfOrNull { it.replace(ansiRegex, "").length } ?: 0
+
+        // 4. Nombre total de lignes à afficher
+        val maxLines = maxOf(artLines.size, details.size)
+
+        // 5. Affichage côte à côte
+        for (i in 0 until maxLines) {
+            val artLine = if (i < artLines.size) artLines[i] else ""
+            val detailLine = if (i < details.size) details[i] else ""
+            val paddedArt = artLine.padEnd(maxArtWidth + 4)
+            println(paddedArt + detailLine)
+        }
+    }
+
+
 }
-fun main() {
-    val espece = EspeceMonstre(1,nom="Aquamy",type="Meteo",10,11,9,14,14,55,9.0,10.0,
-        7.5,12.0,12.0,27.0,"Créature vaporeuse semblable à un nuage, produit des gouttes pures.",
-        "Fait baisser la température en s’endormant.","Calme, rêveur, mystérieux")
 
-    val monstre = individuMonstre(
-        id = 1,
-        nom = "Drako",
-        espece = espece,
-        expInit = 0.0
-    )
 
-    println("Niveau initial: ${monstre.niveau}, Exp initiale: ${monstre.experience}")
 
-    // Donne beaucoup d'expérience pour tester le level up multiple
-    monstre.experience += 500.0
+    fun main() {
+        val espece = EspeceMonstre(
+            1, nom = "Aquamy", type = "Meteo", 10, 11, 9, 14, 14, 55, 9.0, 10.0,
+            7.5, 12.0, 12.0, 27.0, "Créature vaporeuse semblable à un nuage, produit des gouttes pures.",
+            "Fait baisser la température en s’endormant.", "Calme, rêveur, mystérieux"
+        )
 
-    println("Niveau après gain d'expérience: ${monstre.niveau}")
-    println("Stats après level up: ATQ ${monstre.attaque}, PV ${monstre.pv}/${monstre.pvMax}")
-}
+        val monstre = IndividuMonstre(
+            id = 1,
+            nom = "Drako",
+            espece = espece,
+            expInit = 0.0
+        )
+
+        println("Niveau initial: ${monstre.niveau}, Exp initiale: ${monstre.experience}")
+
+        // Donne beaucoup d'expérience pour tester le level up multiple
+        monstre.experience += 500.0
+
+        println("Niveau après gain d'expérience: ${monstre.niveau}")
+        println("Stats après level up: ATQ ${monstre.attaque}, PV ${monstre.pv}/${monstre.pvMax}")
+
+
+    }
