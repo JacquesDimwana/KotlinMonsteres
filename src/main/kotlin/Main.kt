@@ -1,6 +1,10 @@
 package org.example
 
+import org.example.combat.CombatMonstre
 import org.example.dresseur.Entraineur
+import org.example.item.Badge
+import org.example.item.MonsterKube
+import org.example.item.Potion
 import org.example.monde.Zone
 import org.example.monstres.EspeceMonstre
 
@@ -63,6 +67,31 @@ val monstre1 = IndividuMonstre(1,"springleaf",especeSpringLeaf,joueur,0.0)
 val monstre2 = IndividuMonstre(2, "flamkip",  especeFlamkip,joueur,0.0)
 val monstre3 = IndividuMonstre(3, "aquamy", especeAquamy,joueur,0.0)
 
+// Création d’un entraineur (champion)
+val pierre = Entraineur(1, "Pierre", 100)
+
+// Création d’un badge
+val badgeRoche = Badge(
+    1,
+    "Badge Roche",
+    "Permet d’utiliser Flash en dehors des combats",
+    pierre
+)
+
+// Création d'une potion
+val potion = Potion(1, "Potion", "Soigne 20 PV", 20)
+// création d'objet objet
+
+val kubeFeu = MonsterKube(
+    id = 1,
+    nom = "MonsterKube Feu",
+    description = "Peut capturer un monstre sauvage",
+    chanceCapture = 25.0
+)
+
+
+// Ajout dans le sac de l'entraîneur
+val sacha = Entraineur(1, "Sacha", 100)
 
 fun main(){
 //    route1.zoneSuivante = route2
@@ -70,6 +99,7 @@ fun main(){
 //    println("Monstre 1 : ${monstre1.nom} : ${monstre1.espece.nom} : ${monstre1.experience} :${monstre1.entraineur?.nom}")
 //    println("Monstre 2 : ${monstre2.nom} : ${monstre2.espece.nom}: ${monstre2.experience} : ${monstre2.entraineur?.nom}" )
 //    println("Monstre 3 : ${monstre3.nom} : ${monstre3.espece.nom}: ${monstre3.experience} : ${monstre3.entraineur?.nom}")
+
 //    monstre1.attaquer(monstre2)
 //    monstre2.attaquer(monstre1)
 //    monstre1.attaquer(monstre3)
@@ -78,6 +108,8 @@ fun main(){
 //    monstre2.renommer()
 //    monstre3.renommer()
 // {println("${especeAquamy.afficheArt()}, ${especeSpringLeaf.afficheArt()}")
+
+
     println("=== Test affichage des détails ===")
 
     println("=== Monstre 1 ===")
@@ -89,5 +121,20 @@ fun main(){
     println("\n=== Monstre 3 ===")
     monstre3.afficheDetail()
 
+        // Test d’affichage
+//        println("Badge : ${badgeRoche.nom}")
+//        println("Description : ${badgeRoche.description}")
+//         println("Champion : ${badgeRoche.champion.nom}")
+//
+//    println("PV avant potion : ${monstre1.pv}/${monstre1.pvMax}")
+//    // Utilisation de la potion
+//    potion.utiliser(monstre1)
+//    println("PV après potion : ${monstre1.pv}/${monstre1.pvMax}")
+
+// Ajout dans le sac de l'entraîneur
+//    val sacha = Entraineur(1, "Sacha", 100)
+//sacha.sacAItems.add(kubeFeu)
+//
 
 }
+
