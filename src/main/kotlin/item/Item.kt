@@ -7,7 +7,7 @@ import javax.management.Descriptor
 open class Item(
     var id: Int,
     var nom: String,
-    var description: String
+    var description: String,
 )
 
 class Badge(

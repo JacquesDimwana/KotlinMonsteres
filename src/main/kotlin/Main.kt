@@ -108,18 +108,18 @@ fun main(){
 //    monstre2.renommer()
 //    monstre3.renommer()
 // {println("${especeAquamy.afficheArt()}, ${especeSpringLeaf.afficheArt()}")
-
-
-    println("=== Test affichage des détails ===")
-
-    println("=== Monstre 1 ===")
-    monstre1.afficheDetail()
-
-    println("\n=== Monstre 2 ===")
-    monstre2.afficheDetail()
-
-    println("\n=== Monstre 3 ===")
-    monstre3.afficheDetail()
+//
+//
+//    println("=== Test affichage des détails ===")
+//
+//    println("=== Monstre 1 ===")
+//    monstre1.afficheDetail()
+//
+//    println("\n=== Monstre 2 ===")
+//    monstre2.afficheDetail()
+//
+//    println("\n=== Monstre 3 ===")
+//    monstre3.afficheDetail()
 
         // Test d’affichage
 //        println("Badge : ${badgeRoche.nom}")
@@ -135,6 +135,35 @@ fun main(){
 //    val sacha = Entraineur(1, "Sacha", 100)
 //sacha.sacAItems.add(kubeFeu)
 //
+                  // lancer le combat
+//    // On ajoute un monstre dans l'équipe du joueur
+//    joueur.equipeMonstre.add(monstre1)
+//
+//    // Création d’un monstre sauvage (sans entraîneur)
+//    val monstreSauvage = IndividuMonstre(
+//        99,
+//        "Aquamy sauvage",
+//        especeAquamy,
+//        null, // pas d'entraîneur car c'est un sauvage
+//        0.0
+//    )
+//
+//    // combat
+//    val combat = CombatMonstre(
+//        joueur = joueur,
+//        monstreJoueur = monstre1,
+//        monstreSauvage = monstreSauvage
+//    )
+//
+//    // Lancement du combat
+//    combat.lancerCombat()
 
-}
+//    // Ajouter un monstre vivant dans l'équipe du joueur
+  sacha.equipeMonstre.add(monstre1) // monstre1 doit avoir pv > 0
+//
+//    // Lancer une rencontre avec un monstre sauvage dans la zone tropicale
+    zoneTropical.rencontreMonstre(sacha)
+  }
+
+
 

@@ -97,6 +97,7 @@ class CombatMonstre(
 
     /**
      * Affiche les informations des deux monstres et leur ASCII art
+     * Montre l’état du combat (stats + ascii art des monstres)
      */
     fun afficheCombat() {
         println("=== Round $round ===")
@@ -108,6 +109,10 @@ class CombatMonstre(
 
     /**
      * Déroule un round complet
+     * Gère un round complet :
+     * Compare la vitesse → le plus rapide attaque en premier.
+     * Si actionJoueur() dit d’arrêter, le combat s’arrête.
+     * Sinon l’adversaire attaque aussi.
      */
     fun jouer() {
         afficheCombat()
