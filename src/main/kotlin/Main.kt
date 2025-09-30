@@ -158,11 +158,15 @@ fun main(){
 //    // Lancement du combat
 //    combat.lancerCombat()
 
-//    // Ajouter un monstre vivant dans l'équipe du joueur
+  // Ajouter un monstre vivant dans l'équipe du joueur
   sacha.equipeMonstre.add(monstre1) // monstre1 doit avoir pv > 0
 //
-//    // Lancer une rencontre avec un monstre sauvage dans la zone tropicale
+// Lancer une rencontre avec un monstre sauvage dans la zone tropicale
     zoneTropical.rencontreMonstre(sacha)
+    // Ajout des monstres à l’équipe du joueur
+
+
+
   }
 
 
