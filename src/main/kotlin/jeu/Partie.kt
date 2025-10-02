@@ -6,6 +6,8 @@ import org.example.especeAquamy
 import org.example.especeFlamkip
 import org.example.especeSpringLeaf
 import org.example.monde.Zone
+import org.example.rival
+import org.example.zoneTropical
 
 class Partie(
     val id: Int,
@@ -158,7 +160,7 @@ class Partie(
              * ou de modifier l'ordre des monstres.
              */
 
-            fun examineEquipe(joueur: Entraineur) {
+            fun examineEquipe (joueur: Entraineur) {
                 while (true) { // Boucle infinie jusqu'à ce que l'utilisateur décide de quitter
                     println("=== Équipe de ${joueur.nom} ===")
 
@@ -284,8 +286,8 @@ class Partie(
 
 
     }
-    fun jouer(joueur: Entraineur, zoneActuelle: Zone) {
-        var zoneCourante = zoneActuelle   // On garde la zone où le joueur se trouve actuellement
+    fun jouer() {
+        var zoneCourante = this.zone   // On garde la zone où le joueur se trouve actuellement
         var continuer = true              // Variable pour contrôler la boucle du jeu
 
         while (continuer) {
@@ -337,6 +339,20 @@ class Partie(
                 }
             }
         }
+    }
+    fun nouvellePartie(): Partie {
+        // Message d’introduction
+        println("Bienvenue dans le monde des monstres !")
+
+        // Demande du nom du joueur
+        print("Entrez votre nom de joueur : ")
+        val nomJoueur = readLine() ?: "Joueur1"  // Si rien n’est saisi, on met "Joueur1"
+
+        // Modifier le nom du joueur existant
+        joueur.nom = nomJoueur
+
+        // Créer et retourner une nouvelle Partie
+        return Partie(1, rival, zoneTropical) // route1 = zone de départ
     }
 
 }

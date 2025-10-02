@@ -5,6 +5,7 @@ import org.example.dresseur.Entraineur
 import org.example.item.Badge
 import org.example.item.MonsterKube
 import org.example.item.Potion
+import org.example.jeu.Partie
 import org.example.monde.Zone
 import org.example.monstres.EspeceMonstre
 
@@ -93,6 +94,19 @@ val kubeFeu = MonsterKube(
 // Ajout dans le sac de l'entraîneur
 val sacha = Entraineur(1, "Sacha", 100)
 
+fun nouvellePartie(): Partie {
+    println("Bienvenue dans le monde de Monster Adventure !")
+    println("Quel est ton nom dresseur ?")
+    val nomSaisi = readln()
+    joueur.nom = nomSaisi
+
+    println("Bienvenue, $nomSaisi ! Prépare-toi pour ton aventure.")
+
+    // Création et retour d'une nouvelle partie
+    return Partie(1, joueur, zoneTropical)
+}
+
+
 fun main(){
 //    route1.zoneSuivante = route2
 //    route2.zonePrecedente = route1
@@ -159,14 +173,28 @@ fun main(){
 //    combat.lancerCombat()
 
   // Ajouter un monstre vivant dans l'équipe du joueur
-  sacha.equipeMonstre.add(monstre1) // monstre1 doit avoir pv > 0
-//
-// Lancer une rencontre avec un monstre sauvage dans la zone tropicale
-    zoneTropical.rencontreMonstre(sacha)
-    // Ajout des monstres à l’équipe du joueur
+//  sacha.equipeMonstre.add(monstre1) // monstre1 doit avoir pv > 0
+////
+//// Lancer une rencontre avec un monstre sauvage dans la zone tropicale
+//    zoneTropical.rencontreMonstre(sacha)
+//    // Ajout des monstres à l’équipe du joueur
 
+    // Ajouter des monstres à l'équipe du joueur
+//    val joueur = Entraineur(1, "Sacha", 100)
+//    joueur.equipeMonstre.addAll(listOf(monstre1, monstre2, monstre3))
+    // Ajout d’un kube dans l’inventaire du joueur
 
+    // Ajout de l'atout kube feu
+    joueur.sacAItems.add(kubeFeu)
 
+    // Création et lancement d’une nouvelle partie
+    val partie = nouvellePartie()
+
+    // Le joueur choisit son starter
+    partie.choixStarter()
+
+    // Lancement de la partie
+    partie.jouer()
   }
 
 

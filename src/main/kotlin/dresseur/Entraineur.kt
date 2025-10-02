@@ -37,4 +37,22 @@ class Entraineur (
         println("Dresseur : ${this.nom}")
         println("Argents: ${this.argents} ")
     }
+    fun ajouterMonstre(monstre: IndividuMonstre) {
+        if (equipeMonstre.size < 6) {
+            equipeMonstre.add(monstre)
+            println("${monstre.nom} a été ajouté à l’équipe !")
+        } else {
+            boiteMonstre.add(monstre)
+            println("${monstre.nom} a été envoyé dans la boîte.")
+        }
+    }
+
+    /**
+     * Ajoute un item dans le sac.
+     */
+    fun ajouterItem(item: Item) {
+        sacAItems.add(item)
+        println("L’item ${item.nom} a été ajouté au sac.")
+    }
 }
+
