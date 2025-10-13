@@ -60,6 +60,7 @@ class EspeceMonstre (
     val description: String = "",
     val particularites: String = "",
     val caractères: String = "",
+    var palierEvolution: PalierEvolution? = null
 )
 
 /**

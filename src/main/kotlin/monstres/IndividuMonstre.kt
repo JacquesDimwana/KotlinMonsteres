@@ -2,8 +2,10 @@ package org.example
 
 import org.example.dresseur.Entraineur
 import org.example.monstres.EspeceMonstre
+import org.example.monstres.PalierEvolution
 import kotlin.random.Random
 import kotlin.math.round
+//import kotlin
 
 class IndividuMonstre(
     val id: Int,
@@ -145,9 +147,41 @@ class IndividuMonstre(
         }
     }
 
+    fun evoluer() {
+        // Vérifie qu'un palier d'évolution est défini
+        if (espece.palierEvolution   != null) {
+            
+    }
+
+    /**
+     * Augmente le niveau du monstre.
+     * Après l'incrémentation, vérifie si le palier d'évolution est atteint.
+     * Les autres modifications de caractéristiques sont appliquées après cette vérification.
+     */
+    fun levelUp() {
+        niveau += 1
+        println("$nom a atteint le niveau $niveau !")
+
+        // Vérifie si le monstre peut évoluer avant de modifier les caractéristiques
+//        if ((this) == true) {
+//            evoluer()
+//        }
+
+        // TODO : modifier ici les caractéristiques après évolution
+    }
+}
+
 
 }
 
+/**
+ * Méthode qui fait évoluer le monstre.
+ *
+ * Elle vérifie si l'espèce actuelle du monstre possède un palier d'évolution,
+ * et si le niveau du monstre est suffisant pour évoluer.
+ * Si c'est le cas, l'espèce du monstre est remplacée par l'espèce définie
+ * dans le palier d'évolution, et un message est affiché.
+ */
 
 
     fun main() {
@@ -171,6 +205,5 @@ class IndividuMonstre(
 
         println("Niveau après gain d'expérience: ${monstre.niveau}")
         println("Stats après level up: ATQ ${monstre.attaque}, PV ${monstre.pv}/${monstre.pvMax}")
-
 
     }

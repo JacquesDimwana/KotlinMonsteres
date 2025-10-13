@@ -1,10 +1,12 @@
 package org.example
 
 import org.example.combat.CombatMonstre
+import org.example.dao.EntraineurDAO
 import org.example.dresseur.Entraineur
 import org.example.item.Badge
 import org.example.item.MonsterKube
 import org.example.item.Potion
+import org.example.jdbc.BDD
 import org.example.jeu.Partie
 import org.example.monde.Zone
 import org.example.monstres.EspeceMonstre
@@ -19,6 +21,14 @@ import org.example.monstres.EspeceMonstre
      * @param couleur Le nom de la couleur à appliquer (ex: "rouge", "vert", "bleu"). Par défaut c'est une chaîne vide, ce qui n'applique aucune couleur.
      * @return Le message coloré sous forme de chaîne, ou le même message si aucune couleur n'est appliquée.
      */
+//La connexion a la BDD
+
+val db = BDD()
+//Les DAO
+val entraineurDAO= EntraineurDAO(db)
+
+val listeEntraineur = entraineurDAO.findAll()
+
 
 fun changeCouleur(message: String, couleur:String=""): String {
     val reset = "\u001B[0m"
@@ -189,13 +199,19 @@ fun main(){
 
     // Création et lancement d’une nouvelle partie
     val partie = nouvellePartie()
+    joueur.id=0
+    entraineurDAO.save(joueur)
+
 
     // Le joueur choisit son starter
     partie.choixStarter()
 
     // Lancement de la partie
     partie.jouer()
-  }
+    db.close()
+
+
+}
 
 
 
