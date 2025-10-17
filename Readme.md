@@ -106,7 +106,7 @@ potion.utiliser(monstre)
 val kubeFeu = MonsterKube(1, "MonsterKube Feu", "Capture un monstre sauvage", 25.0)
 joueur.sacAItems.add(kubeFeu)
 
-
+zzz
 ```kotlin
 // Exemple : récupérer tous les entraîneurs
 val listeEntraineur = entraineurDAO.findAll()
